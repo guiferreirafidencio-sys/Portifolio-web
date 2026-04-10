@@ -1,0 +1,630 @@
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: linear-gradient(to bottom right, #000000, #1a1a1a, #2c2c2c);
+    background-color: #2c2c2c;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.menu a {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: white;
+}
+
+/* =========================================
+   HEADER / HOME
+========================================= */
+#home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh;
+    padding: 120px 10% 80px 10%;
+    position: relative;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.texto {
+    color: white;
+    max-width: 500px;
+    z-index: 3; /* Texto fica na frente de tudo */
+}
+
+.titulo-skills {
+    color: #aaa;
+    font-size: 18px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    transform: translateX(10px);
+}
+
+.titulo-skills:hover {
+    transform: translateX(10px) translateY(-5px);
+    color: white;
+}
+
+.nome {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(50px, 6vw, 90px);
+    color: #e5e5e5;
+    line-height: 1;
+    margin: 0 0 20px 0;
+    transition: 0.3s;
+}
+
+.nome span {
+    display: block;
+    background: linear-gradient(90deg, #ffffff, #888888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-top: -10px;
+}
+
+.nome:hover {
+    transform: scale(1.05);
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.texto p {
+    color: #ccc;
+    font-size: 18px;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+/* Botões */
+.botoes {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.botoes a {
+    text-decoration: none;
+    color: white;
+    border: 1px solid #555;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.botoes a:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 0 10px #fff;
+    transform: translateY(-5px);
+}
+
+/* 🔥 SUA IMAGEM CORRIGIDA PARA TRÁS E ALINHADA */
+.gui {
+    width: 100%;
+    max-width: 500px;
+    filter: drop-shadow(0 0 25px rgba(255,255,255,0.2));
+    transition: 0.3s;
+    
+    /* Joga para trás e alinha para baixo */
+    z-index: 0; 
+    align-self: flex-end; 
+    transform: translateY(40px); /* Faz ela mergulhar na curva branca */
+}
+
+.gui:hover {
+    transform: translateY(30px); /* Sobe um pouco no hover */
+}
+
+/* Curva Branca */
+#home::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 150px;
+    background: white;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    z-index: 1; /* Curva fica na frente da sua foto, criando efeito 3D */
+}
+
+
+/* =========================================
+   SKILLS (Fundo Branco)
+========================================= */
+.skills {
+    padding: 20px 10% 100px 10%;
+    background: white;
+    color: black;
+    position: relative;
+    z-index: 2;
+}
+
+/* 🔥 SEU TÍTULO "HABILIDADES" DE VOLTA! */
+.habilidades {
+    font-size: clamp(40px, 5vw, 65px); /* Se ajusta na tela */
+    font-weight: 900;
+    text-align: center;
+    color: #111;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 0 #fff, 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 50px;
+    transition: 0.3s;
+    display: block; /* Garante que vai aparecer */
+}
+
+.habilidades::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 5px;
+    margin: 5px auto 0;
+    background: linear-gradient(90deg, #000, #999, #000);
+    border-radius: 10px;
+}
+
+.habilidades:hover {
+    transform: scale(1.03);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: #111;
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    transition: 0.3s;
+}
+
+.card i { font-size: 45px; margin-bottom: 15px; display: block; transition: 0.3s; }
+.card h3 { font-size: 22px; margin: 10px 0; transition: 0.3s; }
+.card p { color: #aaa; line-height: 1.5; margin: 0; transition: 0.3s; }
+
+/* Efeito de luz passando no card que você tinha */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.6s;
+}
+
+.card:hover::after { left: 100%; }
+.card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.08); }
+.card:hover::before { height: 6px; }
+.card:hover i { transform: scale(1.2) rotate(5deg); }
+.card:hover h3, .card:hover p { transform: translateY(-2px); }
+
+/* Cores dos Cards */
+.card.python::before { background: #facc15; } .card.python i { color: #facc15; }
+.card.html::before { background: #ff4d4d; } .card.html i { color: #ff4d4d; }
+.card.css::before { background: #3b82f6; } .card.css i { color: #3b82f6; }
+.card.sql::before { background: #22c55e; } .card.sql i { color: #22c55e; }
+.card.json::before { background: #eab308; } .card.json i { color: #eab308; }
+.card.ia::before { background: #a855f7; } .card.ia i { color: #a855f7; }
+.card.github::before { background: #fff; } .card.github i { color: #fff; }
+
+
+/* 🔥 SEU DIVISOR COM ANIMAÇÃO DE BRILHO DE VOLTA! */
+.divisor {
+    position: relative;
+    width: 100%;
+    height: 4px; /* deixei um pouquinho mais grossa pra ver melhor o brilho */
+    margin: 80px 0 -80px 0; /* Espaçamento ajustado */
+    background: linear-gradient(90deg, transparent, #333, transparent);
+    overflow: hidden; /* Mantém o brilho dentro da linha */
+    z-index: 5;
+}
+
+.divisor::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20%;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+    animation: brilho 3s infinite linear;
+}
+
+@keyframes brilho {
+    0% { left: -20%; }
+    100% { left: 120%; }
+}
+
+
+/* =========================================
+   JORNADA / EXPERIÊNCIA
+========================================= */
+.experiencia {
+    padding: 120px 10%;
+    background: #000;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fundo da Jornada que você criou */
+.experiencia::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+}
+
+/* 🔥 SUA ANIMAÇÃO DE WAVE DA JORNADA DE VOLTA! */
+.experiencia h2 {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: clamp(40px, 5vw, 80px);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 80px;
+    background: linear-gradient(90deg, #fff, #888);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: all 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.experiencia h2:hover {
+    animation: wave 0.6s ease-in-out infinite alternate;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5), 0 10px 20px rgba(0,0,0,0.3);
+}
+
+@keyframes wave {
+    0% { transform: translateY(0px) skewX(0deg); }
+    25% { transform: translateY(-5px) skewX(-3deg); }
+    50% { transform: translateY(5px) skewX(3deg); }
+    75% { transform: translateY(-5px) skewX(-2deg); }
+    100% { transform: translateY(0px) skewX(0deg); }
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(#fff, #333);
+    transform: translateX(-50%);
+}
+
+.evento { position: relative; width: 50%; padding: 20px 40px; box-sizing: border-box; }
+.evento.esquerda { left: 0; text-align: right; }
+.evento.direita { left: 50%; text-align: left; }
+
+/* 🔥 SUA ANIMAÇÃO DE PULSO DE VOLTA! */
+.evento::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 100%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #fff;
+    z-index: 2;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px #fff; }
+    50% { box-shadow: 0 0 25px #fff; }
+    100% { box-shadow: 0 0 10px #fff; }
+}
+
+.evento.direita::before { left: 0; }
+
+.conteudo {
+    background: rgba(255,255,255,0.04);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Luz passando no card da jornada */
+.conteudo::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+    transform: skewX(-25deg);
+}
+
+.conteudo:hover::after { animation: luz 0.8s; }
+@keyframes luz { 100% { left: 150%; } }
+
+.conteudo:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 40px rgba(255,255,255,0.15);
+}
+
+.conteudo span { color: #aaa; font-size: 14px; }
+.conteudo h3 { font-size: 20px; margin: 10px 0; }
+.conteudo p { color: #ccc; }
+
+
+/* =========================================
+   PROJETOS
+========================================= */
+.projetos {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+    color: white;
+    position: relative;
+}
+
+.projetos h2 { font-size: 50px; margin-bottom: 20px; text-shadow: 0 0 20px rgba(255,255,255,0.2);}
+.projetos h2::after {
+    content: "";
+    display: block;
+    width: 80px; height: 3px;
+    background: white;
+    margin: 15px auto 0;
+    border-radius: 10px;
+}
+
+.projetos p { color: #aaa; max-width: 600px; margin: 30px auto; font-size: 18px; line-height: 1.6; text-shadow: 0 0 10px rgba(255,255,255,0.05); }
+
+.btn-github {
+    display: inline-block;
+    padding: 15px 35px;
+    border: 1px solid #fff;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-github::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+}
+
+.btn-github:hover::before { left: 100%; }
+.btn-github:hover { background: white; color: black; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,255,255,0.2);}
+
+
+/* =========================================
+   📱 RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 992px) {
+    #home {
+        flex-direction: column; 
+        text-align: center;
+        padding-top: 150px;
+    }
+    
+    .texto { margin: 0 auto; }
+    .botoes { justify-content: center; }
+
+    .gui {
+        margin-top: 50px; 
+        align-self: center; /* Centraliza a foto no celular */
+        transform: translateY(20px); /* Ajuste pro celular */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 15px 20px; }
+    .menu a { margin-left: 10px; font-size: 12px; }
+
+    .timeline::before { left: 20px; }
+    .evento { width: 100%; padding-left: 60px; padding-right: 0; }
+    .evento.esquerda, .evento.direita { left: 0; text-align: left; }
+    .evento::before, .evento.direita::before { left: 20px; }
+}
+/* 🔥 HABILIDADES CONSERTADO */
+/* 🔥 HABILIDADES - AGORA SEM CORTAR 🔥 */
+.habilidades {
+    font-size: clamp(40px, 5vw, 65px); 
+    font-weight: 900;
+    text-align: center;
+    color: #111;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 0 #fff, 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: 50px; /* Espaço entre o título e os cards */
+    transition: 0.3s;
+    display: block;
+}
+
+.habilidades:hover {
+    transform: scale(1.03); 
+}
+
+.habilidades::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 5px;
+    margin: 5px auto 0;
+    background: linear-gradient(90deg, #000, #999, #000);
+    border-radius: 10px;
+}
+/* 🔥 LINHA DIVISÓRIA GROSSA E NA DIVISA EXATA */
+.divisor {
+    position: relative;
+    width: 100%;
+    height: 12px; /* 🔥 BEM MAIS GROSSA (se quiser mais grossa, aumente esse número) */
+    margin: 0; /* 🔥 Zera a margem para ela colar na divisa entre o branco e o preto */
+    background: #333; /* Cor da linha */
+    overflow: hidden;
+    z-index: 10;
+}
+
+.divisor::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -20%;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #ffffff, transparent); /* Brilho forte */
+    animation: brilho 3s infinite linear;
+}
+
+@keyframes brilho {
+    0% { left: -20%; }
+    100% { left: 120%; }
+}
+/* 🔥 BLOCO DE TEXTO E BOTÕES PARA CIMA */
+.texto {
+    color: white;
+    max-width: 500px;
+    z-index: 3;
+    margin-top: -100px; /* 🔥 AQUI! Quanto mais negativo, mais o texto sobe */
+}
+.gui {
+    width: 100%;
+    max-width: 550px; /* 🔥 AUMENTOU O TAMANHO (antes era 500px) */
+    
+    filter: drop-shadow(0 0 25px rgba(255,  255,255,0.2));
+    transition: 0.3s;
+    z-index: 0;
+    align-self: flex-end; 
+    
+    transform: translateY(-30px); /* 🔥 SUBIU A FOTO (antes era 40px positivo para baixo) */
+}
+
+/* Ajusta o hover para acompanhar a nova posição */
+.gui:hover {
+    transform: translateY(-40px); /* Dá aquele pulinho suave pra cima */
+}
+.texto {
+    color: white;
+    max-width: 500px;
+    z-index: 3;
+    
+    /* 🔥 ALTURA DO TEXTO INTEIRO:
+       Quanto MAIS negativo for esse número, MAIS ALTO o texto fica.
+       Tente -40px, -60px ou -80px e veja como fica na tela! */
+    margin-top: -350px; 
+    text-align: left;
+    
+}
+
+.footer {
+    padding: 40px 20px;
+    text-align: center;
+    background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer p {
+    margin: 10px 0;
+    color: #aaa;
+    font-size: 15px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #ccc;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.footer i {
+    margin-right: 8px;
+}
+
+.footer .copy {
+    font-size: 12px;
+    color: #666;
+}
