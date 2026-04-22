@@ -1,3 +1,4 @@
+
 /* =========================================
    CONFIGURAÇÕES GERAIS
 ========================================= */
@@ -627,4 +628,36 @@ body {
 .footer .copy {
     font-size: 12px;
     color: #666;
+}
+
+
+.bg-animado {
+    position: fixed;
+    inset: 0; /* melhor que width/height */
+    
+    background: radial-gradient(circle at center, #111, #000 70%);
+    
+    z-index: -10;
+    pointer-events: none;
+}
+/* particles fica acima do fundo */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+/* seu conteúdo normal */
+.navbar {
+    position: fixed; /* ou absolute se preferir */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
