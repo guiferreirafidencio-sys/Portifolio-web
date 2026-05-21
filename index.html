@@ -1,180 +1,288 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Guilherme Fidencio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Guilherme Fidencio</title>
 
-    <!DOCTYPE html>
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- CSS do portfólio -->
+  <link rel="stylesheet" href="style.css">
 
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Guilherme Fidencio</title>
+  <!-- ══ SCRIPT DO ANÚNCIO ══ -->
+  <script async data-cfasync="false" src="https://pl29508469.effectivecpmnetwork.com/92f088488ade5e217e5a7609b611e56a/invoke.js"></script>
 
-```
-<!-- Fontes -->
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════════
+       OVERLAY DO ANÚNCIO (aparece após 5s)
+    ══════════════════════════════════════════ */
+    #adOverlay {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      /* começa invisível */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
 
-<!-- CSS -->
-<link rel="stylesheet" href="style.css">
-```
+    #adOverlay.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
 
+    #adOverlay .ad-label {
+      color: rgba(255, 255, 255, 0.35);
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    #adOverlay .ad-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.4rem 2rem;
+      min-width: 300px;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #adOverlay .ad-timer {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.05em;
+    }
+
+    #btnFecharAd {
+      padding: 0.6rem 2.2rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.6);
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      cursor: not-allowed;
+      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
+    }
+
+    #btnFecharAd.liberado {
+      cursor: pointer;
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.14);
+      color: #fff;
+    }
+
+    #btnFecharAd.liberado:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 
 <body>
 
-```
+  <!-- ══════════════════════════════════════════
+       OVERLAY DO ANÚNCIO
+  ══════════════════════════════════════════ -->
+  <div id="adOverlay">
+    <span class="ad-label">✦ publicidade</span>
+    <div class="ad-box">
+      <div id="container-92f088488ade5e217e5a7609b611e56a"></div>
+    </div>
+    <span class="ad-timer" id="adTimer">aguarde 5 segundos…</span>
+    <button id="btnFecharAd" disabled>fechar</button>
+  </div>
 
-<!-- NAVBAR -->
-<nav class="navbar">
+  <!-- NAVBAR -->
+  <nav class="navbar">
     <div class="logo">GF</div>
     <div class="menu">
-        <a href="#home">Home</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#jornada">Jornada</a>
-        <a href="#skills">Habilidades</a>    
+      <a href="#home">Home</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#jornada">Jornada</a>
+      <a href="#skills">Habilidades</a>
     </div>
-</nav>
+  </nav>
 
-<div class="bg-animado"></div>
+  <div class="bg-animado"></div>
 
-<!-- HEADER -->
-<header id="home">
+  <!-- HEADER -->
+  <header id="home">
     <div class="texto">
-        <h1 class="titulo-skills">MINHAS HABILIDADES DEV</h1>
-
-        <h2 class="nome">
-            GUILHERME
-            <span>FIDENCIO</span>
-        </h2>
-
-        <p>
-            Me chamo Guilherme, tenho 18 anos.<br>
-            Essa é minha primeira página web.<br>
-            Estou praticando HTML e CSS.
-        </p>
-
-        <div class="botoes">
-            <a href="https://www.linkedin.com/in/guilherme-fidencio-38521a2a8/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/guiferreirafidencio-sys" target="_blank">GitHub</a>
-            <a href="https://api.whatsapp.com/send/?phone=11991936283&text=Ola+vim+pelo+seu+site&type=phone_number&app_absent=0">Contato</a>
-            <a href="mailto:guilhermeferreirafidencio@gmail.com?subject=Contato%20pelo%20site&body=Ola,%20vim%20pelo%20seu%20site">Gmail</a>
-        </div>
+      <h1 class="titulo-skills">MINHAS HABILIDADES DEV</h1>
+      <h2 class="nome">
+        GUILHERME
+        <span>FIDENCIO</span>
+      </h2>
+      <p>
+        Me chamo Guilherme, tenho 18 anos.<br>
+        Essa é minha primeira página web.<br>
+        Estou praticando HTML e CSS.
+      </p>
+      <div class="botoes">
+        <a href="https://www.linkedin.com/in/guilherme-fidencio-38521a2a8/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/guiferreirafidencio-sys" target="_blank">GitHub</a>
+        <a href="https://api.whatsapp.com/send/?phone=11991936283&text=Ola+vim+pelo+seu+site&type=phone_number&app_absent=0">Contato</a>
+        <a href="mailto:guilhermeferreirafidencio@gmail.com?subject=Contato%20pelo%20site&body=Ola,%20vim%20pelo%20seu%20site">Gmail</a>
+      </div>
     </div>
-
     <img class="gui" src="foto.png" alt="Foto do Guilherme">
-    
-</header>
+  </header>
 
-<!-- SKILLS -->
-<section class="skills" id="skills">
+  <!-- SKILLS -->
+  <section class="skills" id="skills">
     <h2 class="habilidades">Habilidades</h2>
     <div class="cards-grid">
-        <div class="card python">
-            <i class="fa-brands fa-python"></i>
-            <h3>Python</h3>
-            <p>Automação de tarefas, pandas, APIs e scripts.</p>
-        </div>
+      <div class="card python">
+        <i class="fa-brands fa-python"></i>
+        <h3>Python</h3>
+        <p>Automação de tarefas, pandas, APIs e scripts.</p>
+      </div>
+      <div class="card html">
+        <i class="fa-brands fa-html5"></i>
+        <h3>HTML</h3>
+        <p>Estruturação semântica e base para web.</p>
+      </div>
+      <div class="card css">
+        <i class="fa-brands fa-css3-alt"></i>
+        <h3>CSS</h3>
+        <p>Layouts modernos e design responsivo.</p>
+      </div>
+      <div class="card sql">
+        <i class="fa-solid fa-database"></i>
+        <h3>SQL</h3>
+        <p>Banco de dados e consultas eficientes.</p>
+      </div>
+      <div class="card json">
+        <i class="fa-solid fa-code"></i>
+        <h3>JSON</h3>
+        <p>Integração com APIs e dados estruturados.</p>
+      </div>
+      <div class="card ia">
+        <i class="fa-solid fa-brain"></i>
+        <h3>IA</h3>
+        <p>Automação e soluções inteligentes.</p>
+      </div>
+      <div class="card github">
+        <i class="fa-brands fa-github"></i>
+        <h3>GitHub</h3>
+        <p>Versionamento e organização de projetos.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="card html">
-            <i class="fa-brands fa-html5"></i>
-            <h3>HTML</h3>
-            <p>Estruturação semântica e base para web.</p>
-        </div>
+  <!-- DIVISOR -->
+  <div class="divisor"></div>
 
-        <div class="card css">
-            <i class="fa-brands fa-css3-alt"></i>
-            <h3>CSS</h3>
-            <p>Layouts modernos e design responsivo.</p>
-        </div>
-
-        <div class="card sql">
-            <i class="fa-solid fa-database"></i>
-            <h3>SQL</h3>
-            <p>Banco de dados e consultas eficientes.</p>
-        </div>
-
-        <div class="card json">
-            <i class="fa-solid fa-code"></i>
-            <h3>JSON</h3>
-            <p>Integração com APIs e dados estruturados.</p>
-        </div>
-
-        <div class="card ia">
-            <i class="fa-solid fa-brain"></i>
-            <h3>IA</h3>
-            <p>Automação e soluções inteligentes.</p>
-        </div>
-
-        <div class="card github">
-            <i class="fa-brands fa-github"></i>
-            <h3>GitHub</h3>
-            <p>Versionamento e organização de projetos.</p>
-        </div>
-    </div> 
-</section>
-
-<!-- DIVISOR -->
-<div class="divisor"></div>
-
-<!-- JORNADA -->
-<section class="experiencia" id="jornada">
+  <!-- JORNADA -->
+  <section class="experiencia" id="jornada">
     <h2>Jornada</h2>
     <div class="timeline">
-
-        <div class="evento esquerda">
-            <div class="conteudo">
-                <span>2024</span>
-                <h3>
-                    Iniciei meus estudos em Python aprendendo alguns conceitos básicos, porém, naquele momento, não me dediquei de forma consistente. Atualmente, tenho o objetivo de aprofundar meus conhecimentos e evoluir na área de desenvolvimento.
-                </h3>
-            </div>
+      <div class="evento esquerda">
+        <div class="conteudo">
+          <span>2024</span>
+          <h3>
+            Iniciei meus estudos em Python aprendendo alguns conceitos básicos, porém, naquele momento, não me dediquei de forma consistente. Atualmente, tenho o objetivo de aprofundar meus conhecimentos e evoluir na área de desenvolvimento.
+          </h3>
         </div>
-
-        <div class="evento direita">
-            <div class="conteudo">
-                <span>2025</span>
-                <h3>
-                    Comecei como estagiário fiscal em um escritório de contabilidade, onde identifiquei processos repetitivos que impactavam a produtividade. Utilizando Python, desenvolvi automações internas que otimizaram o tempo.
-                </h3>
-            </div>
+      </div>
+      <div class="evento direita">
+        <div class="conteudo">
+          <span>2025</span>
+          <h3>
+            Comecei como estagiário fiscal em um escritório de contabilidade, onde identifiquei processos repetitivos que impactavam a produtividade. Utilizando Python, desenvolvi automações internas que otimizaram o tempo.
+          </h3>
         </div>
-
-        <div class="evento esquerda">
-            <div class="conteudo">
-                <span>2026</span>
-                <h3>
-                    Após essa experiência, segui evoluindo na área de programação e iniciei minha graduação em Ciência da Computação. Atualmente busco uma oportunidade de estágio.
-                </h3>
-            </div>
+      </div>
+      <div class="evento esquerda">
+        <div class="conteudo">
+          <span>2026</span>
+          <h3>
+            Após essa experiência, segui evoluindo na área de programação e iniciei minha graduação em Ciência da Computação. Atualmente busco uma oportunidade de estágio.
+          </h3>
         </div>
-
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- PROJETOS -->
-<section class="projetos" id="projetos">
+  <!-- PROJETOS -->
+  <section class="projetos" id="projetos">
     <h2>Projetos</h2>
     <p>
-        Meus projetos estão disponíveis no GitHub, onde aplico meus conhecimentos
-        em Python, automação e desenvolvimento web.
+      Meus projetos estão disponíveis no GitHub, onde aplico meus conhecimentos
+      em Python, automação e desenvolvimento web.
     </p>
-
     <a href="https://github.com/guiferreirafidencio-sys" target="_blank" class="btn-github">
-        Ver meus projetos
+      Ver meus projetos
     </a>
-</section>
+  </section>
 
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script src="script.js"></script>
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
 
+  <!-- ══════════════════════════════════════════
+       LÓGICA DO ANÚNCIO — aparece após 5s na página
+  ══════════════════════════════════════════ -->
+  <script>
+    (function () {
+      const DELAY_SHOW  = 5000; // ms para mostrar o overlay
+      const DELAY_CLOSE = 5000; // ms de countdown antes de liberar o botão
 
+      const overlay  = document.getElementById('adOverlay');
+      const btn      = document.getElementById('btnFecharAd');
+      const timerTxt = document.getElementById('adTimer');
+
+      // ── 1. Abre o overlay após 5 segundos na página ──
+      setTimeout(function () {
+        overlay.classList.add('visible');
+        iniciarCountdown();
+      }, DELAY_SHOW);
+
+      // ── 2. Countdown de 5s para liberar o botão ──
+      function iniciarCountdown() {
+        let seg = Math.round(DELAY_CLOSE / 1000);
+
+        timerTxt.textContent = `aguarde ${seg} segundo${seg !== 1 ? 's' : ''}…`;
+
+        const intervalo = setInterval(function () {
+          seg--;
+          if (seg > 0) {
+            timerTxt.textContent = `aguarde ${seg} segundo${seg !== 1 ? 's' : ''}…`;
+          } else {
+            clearInterval(intervalo);
+            timerTxt.textContent = 'pronto! pode fechar.';
+            btn.disabled = false;
+            btn.classList.add('liberado');
+          }
+        }, 1000);
+      }
+
+      // ── 3. Fechar overlay ──
+      btn.addEventListener('click', function () {
+        if (btn.disabled) return;
+        overlay.classList.remove('visible');
+      });
+    })();
+  </script>
 
 </body>
 </html>
