@@ -239,50 +239,7 @@
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
 
-  <!-- ══════════════════════════════════════════
-       LÓGICA DO ANÚNCIO — aparece após 5s na página
-  ══════════════════════════════════════════ -->
-  <script>
-    (function () {
-      const DELAY_SHOW  = 5000; // ms para mostrar o overlay
-      const DELAY_CLOSE = 5000; // ms de countdown antes de liberar o botão
-
-      const overlay  = document.getElementById('adOverlay');
-      const btn      = document.getElementById('btnFecharAd');
-      const timerTxt = document.getElementById('adTimer');
-
-      // ── 1. Abre o overlay após 5 segundos na página ──
-      setTimeout(function () {
-        overlay.classList.add('visible');
-        iniciarCountdown();
-      }, DELAY_SHOW);
-
-      // ── 2. Countdown de 5s para liberar o botão ──
-      function iniciarCountdown() {
-        let seg = Math.round(DELAY_CLOSE / 1000);
-
-        timerTxt.textContent = `aguarde ${seg} segundo${seg !== 1 ? 's' : ''}…`;
-
-        const intervalo = setInterval(function () {
-          seg--;
-          if (seg > 0) {
-            timerTxt.textContent = `aguarde ${seg} segundo${seg !== 1 ? 's' : ''}…`;
-          } else {
-            clearInterval(intervalo);
-            timerTxt.textContent = 'pronto! pode fechar.';
-            btn.disabled = false;
-            btn.classList.add('liberado');
-          }
-        }, 1000);
-      }
-
-      // ── 3. Fechar overlay ──
-      btn.addEventListener('click', function () {
-        if (btn.disabled) return;
-        overlay.classList.remove('visible');
-      });
-    })();
-  </script>
+  
 
 </body>
 </html>
