@@ -6,7 +6,7 @@
   <title>Portfólio Guilhermee Fidencio</title>
 
   <!-- Fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@600;800;900&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- CSS do portfólio -->
@@ -15,101 +15,9 @@
   <!-- ══ SCRIPT DO ANÚNCIO ══ -->
   <script async data-cfasync="false" src="https://pl29508469.effectivecpmnetwork.com/92f088488ade5e217e5a7609b611e56a/invoke.js"></script>
 
-  <style>
-    /* ══════════════════════════════════════════
-       OVERLAY DO ANÚNCIO (aparece após 5s)
-    ══════════════════════════════════════════ */
-    #adOverlay {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      background: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.2rem;
-
-      /* começa invisível */
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-
-    #adOverlay.visible {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    #adOverlay .ad-label {
-      color: rgba(255, 255, 255, 0.35);
-      font-family: 'Archivo Black', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    #adOverlay .ad-box {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 1.4rem 2rem;
-      min-width: 300px;
-      min-height: 90px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    #adOverlay .ad-timer {
-      font-family: 'Archivo Black', sans-serif;
-      font-size: 0.72rem;
-      color: rgba(255, 255, 255, 0.3);
-      letter-spacing: 0.05em;
-    }
-
-    #btnFecharAd {
-      padding: 0.6rem 2.2rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.07);
-      color: rgba(255, 255, 255, 0.6);
-      font-family: 'Archivo Black', sans-serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.05em;
-      cursor: not-allowed;
-      transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s;
-    }
-
-    #btnFecharAd.liberado {
-      cursor: pointer;
-      border-color: rgba(255, 255, 255, 0.5);
-      background: rgba(255, 255, 255, 0.14);
-      color: #fff;
-    }
-
-    #btnFecharAd.liberado:hover {
-      background: rgba(255, 255, 255, 0.22);
-      transform: translateY(-2px);
-    }
-  </style>
 </head>
 
 <body>
-
-  <!-- ══════════════════════════════════════════
-       OVERLAY DO ANÚNCIO
-  ══════════════════════════════════════════ -->
-  <div id="adOverlay">
-    <span class="ad-label">✦ publicidade</span>
-    <div class="ad-box">
-      <div id="container-92f088488ade5e217e5a7609b611e56a"></div>
-    </div>
-    <span class="ad-timer" id="adTimer">aguarde 5 segundos…</span>
-    <button id="btnFecharAd" disabled>fechar</button>
-  </div>
 
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -120,6 +28,10 @@
       <a href="#jornada">Jornada</a>
       <a href="#skills">Habilidades</a>
     </div>
+    <div class="nav-icons">
+      <a href="https://www.linkedin.com/in/guilherme-fidencio-38521a2a8/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/guiferreirafidencio-sys" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    </div>
   </nav>
 
   <div class="bg-animado"></div>
@@ -127,70 +39,187 @@
   <!-- HEADER -->
   <header id="home">
     <div class="texto">
-      <h1 class="titulo-skills">MINHAS HABILIDADES DEV</h1>
       <h2 class="nome">
         GUILHERME
         <span>FIDENCIO</span>
       </h2>
-      <p>
-        Me chamo Guilherme, tenho 18 anos.<br>
-        Essa é minha primeira página web.<br>
-        Estou praticando HTML e CSS.
-      </p>
+      <p class="typewriter"><span id="tw-texto"></span><span class="tw-cursor">|</span></p>
+      <p class="tagline">Transformo processos em soluções através da tecnologia.</p>
       <div class="botoes">
-        <a href="https://www.linkedin.com/in/guilherme-fidencio-38521a2a8/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/guiferreirafidencio-sys" target="_blank">GitHub</a>
-        <a href="https://api.whatsapp.com/send/?phone=11991936283&text=Ola+vim+pelo+seu+site&type=phone_number&app_absent=0">Contato</a>
-        <a href="mailto:guilhermeferreirafidencio@gmail.com?subject=Contato%20pelo%20site&body=Ola,%20vim%20pelo%20seu%20site">Gmail</a>
+        <a class="principal" href="https://api.whatsapp.com/send/?phone=11991936283&text=Ola+vim+pelo+seu+site&type=phone_number&app_absent=0"><i class="fa-brands fa-whatsapp"></i> Fale comigo</a>
+        <a href="mailto:guilhermeferreirafidencio@gmail.com?subject=Contato%20pelo%20site&body=Ola,%20vim%20pelo%20seu%20site"><i class="fa-solid fa-envelope"></i> Gmail</a>
       </div>
     </div>
     <img class="gui" src="foto.png" alt="Foto do Guilherme">
   </header>
 
-  <!-- SKILLS -->
+  <!-- SKILLS — CONSTELAÇÃO ORBITAL -->
   <section class="skills" id="skills">
     <h2 class="habilidades">Habilidades</h2>
-    <div class="cards-grid">
-      <div class="card python">
-        <i class="fa-brands fa-python"></i>
-        <h3>Python</h3>
-        <p>Automação de tarefas, pandas, APIs e scripts.</p>
+    <p class="skills-sub">Python no centro. Tudo o mais orbita em volta dele.</p>
+
+    <div class="stars-bg" id="starsBg"></div>
+
+    <div class="skills-galaxy" id="skillsGalaxy">
+
+      <!-- NÚCLEO -->
+      <div class="core-wrap">
+        <div class="orb core-orb">
+          <i class="fa-brands fa-python"></i>
+          <span class="orb-label">Python</span>
+        </div>
       </div>
-      <div class="card html">
-        <i class="fa-brands fa-html5"></i>
-        <h3>HTML</h3>
-        <p>Estruturação semântica e base para web.</p>
+
+      <!-- ANEL 1 -->
+      <div class="spoke" style="--angle:0deg; --radius:23vmin; --c:#ff6b6b;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-brands fa-html5"></i>
+              <span class="orb-label">HTML</span>
+              <span class="orb-tip">Estruturação semântica da web</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card css">
-        <i class="fa-brands fa-css3-alt"></i>
-        <h3>CSS</h3>
-        <p>Layouts modernos e design responsivo.</p>
+
+      <div class="spoke" style="--angle:60deg; --radius:23vmin; --c:#4dabf7;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-brands fa-css3-alt"></i>
+              <span class="orb-label">CSS</span>
+              <span class="orb-tip">Layouts modernos e responsivos</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card sql">
-        <i class="fa-solid fa-database"></i>
-        <h3>SQL</h3>
-        <p>Banco de dados e consultas eficientes.</p>
+
+      <div class="spoke" style="--angle:120deg; --radius:23vmin; --c:#ffd43b;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-brands fa-js"></i>
+              <span class="orb-label">JavaScript</span>
+              <span class="orb-tip">Interatividade e dinamismo</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card json">
-        <i class="fa-solid fa-code"></i>
-        <h3>JSON</h3>
-        <p>Integração com APIs e dados estruturados.</p>
+
+      <div class="spoke" style="--angle:180deg; --radius:23vmin; --c:#51cf66;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-solid fa-database"></i>
+              <span class="orb-label">SQL</span>
+              <span class="orb-tip">Bancos de dados e consultas</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card ia">
-        <i class="fa-solid fa-brain"></i>
-        <h3>IA</h3>
-        <p>Automação e soluções inteligentes.</p>
+
+      <div class="spoke" style="--angle:240deg; --radius:23vmin; --c:#adb5bd;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-solid fa-flask"></i>
+              <span class="orb-label">Flask</span>
+              <span class="orb-tip">APIs e apps web em Python</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="card github">
-        <i class="fa-brands fa-github"></i>
-        <h3>GitHub</h3>
-        <p>Versionamento e organização de projetos.</p>
+
+      <div class="spoke" style="--angle:300deg; --radius:23vmin; --c:#e5e5e5;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-brands fa-github"></i>
+              <span class="orb-label">GitHub</span>
+              <span class="orb-tip">Versionamento de projetos</span>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- ANEL 2 -->
+      <div class="spoke outer" style="--angle:30deg; --radius:39vmin; --c:#22d3c9;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-solid fa-plug"></i>
+              <span class="orb-label">API</span>
+              <span class="orb-tip">Integração e consumo de APIs REST</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spoke outer" style="--angle:102deg; --radius:39vmin; --c:#f2b632;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-solid fa-code"></i>
+              <span class="orb-label">JSON</span>
+              <span class="orb-tip">Dados estruturados para APIs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spoke outer" style="--angle:174deg; --radius:39vmin; --c:#cc5de8;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-solid fa-brain"></i>
+              <span class="orb-label">IA</span>
+              <span class="orb-tip">Automação e soluções inteligentes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spoke outer" style="--angle:246deg; --radius:39vmin; --c:#38bdf8;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-solid fa-cloud-arrow-up"></i>
+              <span class="orb-label">Deploy</span>
+              <span class="orb-tip">Publicação e hospedagem</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spoke outer" style="--angle:318deg; --radius:39vmin; --c:#9775fa;">
+        <div class="beam"></div>
+        <div class="orb-anchor">
+          <div class="orb-float">
+            <div class="orb" tabindex="0">
+              <i class="fa-solid fa-table"></i>
+              <span class="orb-label">Pandas</span>
+              <span class="orb-tip">Manipulação e análise de dados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
+
   <!-- DIVISOR -->
-  <div class="divisor"></div>
 
   <!-- JORNADA -->
   <section class="experiencia" id="jornada">
@@ -230,6 +259,53 @@
       Meus projetos estão disponíveis no GitHub, onde aplico meus conhecimentos
       em Python, automação e desenvolvimento web.
     </p>
+
+    <div class="projetos-grid">
+
+      <!-- PROJETO 1 -->
+      <div class="projeto-card">
+        <div class="projeto-thumb">
+          <i class="fa-solid fa-server"></i>
+        </div>
+        <div class="projeto-body">
+          <span class="projeto-tag">Backend</span>
+          <h3>Growly</h3>
+          <p>Backend em produção, hospedado no Railway.</p>
+          <div class="projeto-links">
+            <a href="https://growly-backend-production-0edc.up.railway.app/" target="_blank" class="principal"><i class="fa-solid fa-up-right-from-square"></i> Ver online</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJETO 2 -->
+      <div class="projeto-card">
+        <div class="projeto-thumb">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <div class="projeto-body">
+          <span class="projeto-tag">Projeto</span>
+          <h3>Projeto Faculdade</h3>
+          <p>Projeto desenvolvido durante a faculdade, em produção no Railway.</p>
+          <div class="projeto-links">
+            <a href="https://projeto-faculdade-production.up.railway.app/" target="_blank" class="principal"><i class="fa-solid fa-up-right-from-square"></i> Ver online</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJETO 3 -->
+      <div class="projeto-card placeholder">
+        <div class="projeto-thumb">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <div class="projeto-body">
+          <span class="projeto-tag">Em breve</span>
+          <h3>Projeto 3</h3>
+          <p>Aqui vai a descrição rápida do projeto.</p>
+        </div>
+      </div>
+
+    </div>
+
     <a href="https://github.com/guiferreirafidencio-sys" target="_blank" class="btn-github">
       Ver meus projetos
     </a>
@@ -238,8 +314,102 @@
   <!-- SCRIPTS -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script src="script.js"></script>
+  <script>
+    // Libera os hovers normalmente depois que a animação de entrada termina
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.nome, .tagline, .botoes a, .gui')
+          .forEach(el => { el.style.animation = 'none'; });
+      }, 2200);
+    });
 
-  
+    // Efeito de máquina de escrever alternando habilidades
+    const frasesTypewriter = [
+      "Desenvolvedor Python",
+      "Automação de Processos",
+      "APIs REST",
+      "Desenvolvimento Web",
+      "Flask & SQL"
+    ];
+    const twEl = document.getElementById('tw-texto');
+    let twFrase = 0, twChar = 0, twApagando = false;
+
+    function twPasso() {
+      const atual = frasesTypewriter[twFrase];
+      if (!twApagando) {
+        twChar++;
+        twEl.textContent = atual.substring(0, twChar);
+        if (twChar === atual.length) {
+          twApagando = true;
+          setTimeout(twPasso, 1500);
+          return;
+        }
+      } else {
+        twChar--;
+        twEl.textContent = atual.substring(0, twChar);
+        if (twChar === 0) {
+          twApagando = false;
+          twFrase = (twFrase + 1) % frasesTypewriter.length;
+        }
+      }
+      setTimeout(twPasso, twApagando ? 35 : 65);
+    }
+    twPasso();
+
+    // ⭐ Fundo de estrelas na seção de habilidades
+    const starsBg = document.getElementById('starsBg');
+    if (starsBg) {
+      const total = 90;
+      let html = '';
+      for (let i = 0; i < total; i++) {
+        const top = Math.random() * 100;
+        const left = Math.random() * 100;
+        const size = (Math.random() * 2 + 1).toFixed(1);
+        const dur = (Math.random() * 3 + 2.5).toFixed(1);
+        const delay = (Math.random() * 5).toFixed(1);
+        const opacity = (Math.random() * 0.5 + 0.4).toFixed(2);
+        html += `<span class="star" style="top:${top}%; left:${left}%; width:${size}px; height:${size}px; --op:${opacity}; animation-duration:${dur}s; animation-delay:-${delay}s;"></span>`;
+      }
+      starsBg.innerHTML = html;
+    }
+
+    // ✨ Constelação de habilidades — paralaxe pelo mouse + entrada animada
+    const galaxy = document.getElementById('skillsGalaxy');
+    if (galaxy) {
+      let targetX = 0, targetY = 0, curX = 0, curY = 0;
+
+      galaxy.addEventListener('mousemove', (e) => {
+        const r = galaxy.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        targetX = px * 22;
+        targetY = py * 16;
+      });
+
+      galaxy.addEventListener('mouseleave', () => {
+        targetX = 0;
+        targetY = 0;
+      });
+
+      function paraLoop() {
+        curX += (targetX - curX) * 0.06;
+        curY += (targetY - curY) * 0.06;
+        galaxy.style.transform = `rotateX(${-curY}deg) rotateY(${curX}deg)`;
+        requestAnimationFrame(paraLoop);
+      }
+      paraLoop();
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            galaxy.classList.add('in-view');
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.25 });
+      io.observe(galaxy);
+    }
+  </script>
 
 </body>
 </html>
