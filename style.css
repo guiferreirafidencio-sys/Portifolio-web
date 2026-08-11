@@ -1,9 +1,14 @@
-
 /* =========================================
    CONFIGURAÇÕES GERAIS
 ========================================= */
 html {
     scroll-behavior: smooth;
+}
+
+:root {
+    --accent: #c7c9cc;
+    --accent-light: #f2f2f3;
+    --accent-dim: #6b6e73;
 }
 
 body {
@@ -53,6 +58,38 @@ body {
     color: white;
 }
 
+/* Cápsula de ícones — LinkedIn / GitHub */
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    padding: 7px;
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    margin-left: 30px;
+}
+
+.nav-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-dim));
+    color: #1a1a1a;
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.nav-icons a:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 6px 16px rgba(200,200,205,0.5);
+}
+
 /* =========================================
    HEADER / HOME
 ========================================= */
@@ -70,29 +107,42 @@ body {
 .texto {
     color: white;
     max-width: 500px;
-    z-index: 3; /* Texto fica na frente de tudo */
+    z-index: 3;
+    margin-top: -60px;
 }
 
-.titulo-skills {
-    color: #aaa;
-    font-size: 18px;
-    margin-bottom: 10px;
-    transition: 0.3s;
-    transform: translateX(10px);
+/* ✨ Brilho suave decorativo atrás da foto — dá "peso" e elegância à entrada */
+#home::before {
+    content: "";
+    position: absolute;
+    top: 12%;
+    right: 4%;
+    width: 560px;
+    height: 560px;
+    max-width: 60vw;
+    background: radial-gradient(circle, rgba(255,255,255,0.09), transparent 70%);
+    filter: blur(6px);
+    z-index: 0;
+    pointer-events: none;
 }
 
-.titulo-skills:hover {
-    transform: translateX(10px) translateY(-5px);
-    color: white;
+/* 🎬 Entrada elegante — cada elemento surge em sequência */
+@keyframes entradaFade {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 .nome {
-    font-family: 'Archivo Black', sans-serif;
-    font-size: clamp(50px, 6vw, 90px);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 86px);
+    letter-spacing: -1px;
     color: #e5e5e5;
     line-height: 1;
-    margin: 0 0 20px 0;
+    margin: 0 0 22px 0;
     transition: 0.3s;
+    animation: entradaFade 0.9s ease both;
+    animation-delay: 0.15s;
 }
 
 .nome span {
@@ -112,188 +162,430 @@ body {
 .texto p {
     color: #ccc;
     font-size: 18px;
-    margin-bottom: 40px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     line-height: 1.5;
+}
+
+/* Linha da máquina de escrever — logo colada no nome, texto normal só que maior */
+.texto .typewriter {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: clamp(24px, 3vw, 36px);
+    color: var(--accent-light);
+    min-height: 24px;
+    margin-top: -8px;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+    animation: entradaFade 0.9s ease both;
+    animation-delay: 0.35s;
+}
+
+.tw-cursor {
+    color: var(--accent);
+    margin-left: 3px;
+    font-weight: 700;
+    animation: piscarCursor 0.9s step-end infinite;
+}
+
+@keyframes piscarCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Tagline — agora vem depois da máquina de escrever, bem maior */
+.texto .tagline {
+    font-size: clamp(24px, 2.6vw, 30px);
+    line-height: 1.5;
+    margin-bottom: 36px;
+    animation: entradaFade 0.9s ease both;
+    animation-delay: 0.5s;
 }
 
 /* Botões */
 .botoes {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    gap: 14px;
+    max-width: 400px;
 }
 
 .botoes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
     text-decoration: none;
-    color: white;
-    border: 1px solid #555;
-    padding: 12px 25px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    color: #ddd;
+    border: 1px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.03);
+    padding: 13px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all 0.3s ease, background-color 0.3s ease;
+    animation: entradaFade 0.7s ease both;
+    animation-delay: 0.65s;
+}
+
+.botoes a i {
+    font-size: 16px;
 }
 
 .botoes a:hover {
     background-color: white;
     color: black;
-    box-shadow: 0 0 10px #fff;
-    transform: translateY(-5px);
+    border-color: white;
+    box-shadow: 0 0 15px rgba(255,255,255,0.35);
+    transform: translateY(-4px);
 }
 
-/* 🔥 SUA IMAGEM CORRIGIDA PARA TRÁS E ALINHADA */
-.gui {
-    width: 100%;
-    max-width: 500px;
-    filter: drop-shadow(0 0 25px rgba(255,255,255,0.2));
-    transition: 0.3s;
-    
-    /* Joga para trás e alinha para baixo */
-    z-index: 0; 
-    align-self: flex-end; 
-    transform: translateY(40px); /* Faz ela mergulhar na curva branca */
+/* Ação principal em destaque — agora em azul, sem dourado */
+.botoes a.principal {
+    color: #1a1a1a;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-dim));
+    border: 1px solid var(--accent);
+    box-shadow: 0 8px 24px rgba(200,200,205,0.2);
 }
 
-.gui:hover {
-    transform: translateY(30px); /* Sobe um pouco no hover */
+.botoes a.principal:hover {
+    background: linear-gradient(135deg, #ffffff, var(--accent-light));
+    border-color: var(--accent-light);
+    color: #1a1a1a;
+    box-shadow: 0 8px 28px rgba(200,200,205,0.4);
+    transform: translateY(-4px);
 }
 
-/* Curva Branca */
+.botoes a:nth-child(2) { animation-delay: 0.75s; }
+
+/* Fade de transição descendo do header pro fundo escuro da constelação de skills */
 #home::after {
     content: "";
     position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120%;
-    height: 150px;
-    background: white;
-    border-top-left-radius: 50% 100%;
-    border-top-right-radius: 50% 100%;
-    z-index: 1; /* Curva fica na frente da sua foto, criando efeito 3D */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 260px;
+    background: linear-gradient(to bottom, transparent, #0a0a0c);
+    z-index: 1;
+    pointer-events: none;
 }
 
 
 /* =========================================
-   SKILLS (Fundo Branco)
+   SKILLS — CONSTELAÇÃO ORBITAL
 ========================================= */
 .skills {
-    padding: 20px 10% 100px 10%;
-    background: white;
-    color: black;
-    position: relative;
-    z-index: 2;
-}
-
-/* 🔥 SEU TÍTULO "HABILIDADES" DE VOLTA! */
-.habilidades {
-    font-size: clamp(40px, 5vw, 65px); /* Se ajusta na tela */
-    font-weight: 900;
-    text-align: center;
-    color: #111;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-shadow: 0 2px 0 #fff, 0 10px 30px rgba(0,0,0,0.2);
-    margin-bottom: 50px;
-    transition: 0.3s;
-    display: block; /* Garante que vai aparecer */
-}
-
-.habilidades::after {
-    content: "";
-    display: block;
-    width: 120px;
-    height: 5px;
-    margin: 5px auto 0;
-    background: linear-gradient(90deg, #000, #999, #000);
-    border-radius: 10px;
-}
-
-.habilidades:hover {
-    transform: scale(1.03);
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.card {
-    background: #111;
-    border-radius: 20px;
-    padding: 30px;
+    /* padding inferior aumentado (era 90px) pra dar respiro antes da Jornada */
+    padding: 60px 6% 220px 6%;
+    background: radial-gradient(circle at 50% 20%, #16161a 0%, #0a0a0c 60%, #000 100%);
     color: white;
     position: relative;
+    z-index: 2;
     overflow: hidden;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
 }
 
-.card::before {
+/* Fade suave no topo — some com o corte seco vindo do header */
+.skills::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 4px;
-    transition: 0.3s;
+    right: 0;
+    height: 320px;
+    background: linear-gradient(to bottom, #0a0a0c 0%, rgba(10,10,12,0) 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
-.card i { font-size: 45px; margin-bottom: 15px; display: block; transition: 0.3s; }
-.card h3 { font-size: 22px; margin: 10px 0; transition: 0.3s; }
-.card p { color: #aaa; line-height: 1.5; margin: 0; transition: 0.3s; }
-
-/* Efeito de luz passando no card que você tinha */
-.card::after {
+/* Fade suave no final — faz a seção "sumir" no preto antes da Jornada começar,
+   em vez de cortar seco (transição espelhada ao ::before do topo) */
+.skills::after {
     content: "";
     position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: 0.6s;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 260px;
+    background: linear-gradient(to top, #000000 0%, rgba(0,0,0,0) 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
-.card:hover::after { left: 100%; }
-.card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.08); }
-.card:hover::before { height: 6px; }
-.card:hover i { transform: scale(1.2) rotate(5deg); }
-.card:hover h3, .card:hover p { transform: translateY(-2px); }
-
-/* Cores dos Cards */
-.card.python::before { background: #facc15; } .card.python i { color: #facc15; }
-.card.html::before { background: #ff4d4d; } .card.html i { color: #ff4d4d; }
-.card.css::before { background: #3b82f6; } .card.css i { color: #3b82f6; }
-.card.sql::before { background: #22c55e; } .card.sql i { color: #22c55e; }
-.card.json::before { background: #eab308; } .card.json i { color: #eab308; }
-.card.ia::before { background: #a855f7; } .card.ia i { color: #a855f7; }
-.card.github::before { background: #fff; } .card.github i { color: #fff; }
-
-
-/* 🔥 SEU DIVISOR COM ANIMAÇÃO DE BRILHO DE VOLTA! */
-.divisor {
+.habilidades {
+    font-size: clamp(36px, 4.5vw, 58px);
+    font-weight: 800;
+    text-align: center;
+    color: #f2f2f3;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
     position: relative;
+    z-index: 2;
+}
+
+.skills-sub {
+    color: #8a8a90;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    margin: 0 0 20px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.stars-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    background: #fff;
+    opacity: var(--op, 0.6);
+    animation-name: twinkle;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0; transform: scale(0.6); }
+    50% { opacity: var(--op, 0.6); transform: scale(1); }
+}
+
+.skills-galaxy {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    height: 4px; /* deixei um pouquinho mais grossa pra ver melhor o brilho */
-    margin: 80px 0 -80px 0; /* Espaçamento ajustado */
-    background: linear-gradient(90deg, transparent, #333, transparent);
-    overflow: hidden; /* Mantém o brilho dentro da linha */
+    max-width: 900px;
+    /* raio externo é 39vmin — a altura precisa comportar 2x esse raio + o
+       tamanho do orbe, senão os satélites de cima estouram e cobrem o título.
+       Por isso NÃO reduzir abaixo disso. O respiro extra pra Jornada é
+       resolvido no padding-bottom da .skills, não aqui. */
+    height: 82vmin;
+    max-height: 660px;
+    min-height: 480px;
+    margin: 70px auto 0;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+}
+
+/* --- núcleo --- */
+.core-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 5;
 }
 
-.divisor::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -20%;
-    width: 20%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
-    animation: brilho 3s infinite linear;
+.core-orb {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: radial-gradient(circle at 35% 30%, #2c2c30, #0d0d0f 75%);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 0 0 rgba(255,255,255,0.2);
+    animation: corePulse 3.4s ease-in-out infinite;
+    font-size: 42px;
+    color: #ffd43b;
 }
 
-@keyframes brilho {
-    0% { left: -20%; }
-    100% { left: 120%; }
+.core-orb .orb-label {
+    font-size: 13px;
+    color: #f2f2f3;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+@keyframes corePulse {
+    0%, 100% { box-shadow: 0 0 26px rgba(255,255,255,0.18), 0 0 60px rgba(255,255,255,0.06); }
+    50%      { box-shadow: 0 0 42px rgba(255,255,255,0.32), 0 0 90px rgba(255,255,255,0.12); }
+}
+
+/* --- eixo que posiciona cada satélite ao redor do núcleo --- */
+.spoke {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: rotate(var(--angle));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.skills-galaxy.in-view .spoke {
+    opacity: 1;
+    transition: opacity 0.8s ease var(--d, 0s);
+}
+
+/* linha de energia do centro até o satélite */
+.beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--radius);
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--c), transparent 85%);
+    transform-origin: 0 50%;
+    opacity: 0.25;
+    transition: opacity 0.35s ease, filter 0.35s ease;
+}
+
+/* ancora a posição do satélite na ponta do eixo, contra-rotacionando pra ficar em pé */
+.orb-anchor {
+    position: absolute;
+    top: 0;
+    left: var(--radius);
+    transform: translate(-50%, -50%) rotate(calc(-1 * var(--angle)));
+}
+
+/* flutuação suave, independente da posição */
+.orb-float {
+    animation: floatBob 4.5s ease-in-out infinite;
+}
+
+.spoke:nth-of-type(3n) .orb-float { animation-duration: 5.2s; animation-delay: -1.1s; }
+.spoke:nth-of-type(3n+1) .orb-float { animation-duration: 3.9s; animation-delay: -2.4s; }
+.spoke:nth-of-type(3n+2) .orb-float { animation-duration: 4.8s; animation-delay: -0.6s; }
+
+@keyframes floatBob {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.orb {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    background: radial-gradient(circle at 35% 30%, #26262a, #08080a 75%);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: var(--c, #fff);
+    font-size: 28px;
+    cursor: default;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    outline: none;
+    box-shadow: 0 0 14px color-mix(in srgb, var(--c) 35%, transparent);
+}
+
+.orb i {
+    filter: drop-shadow(0 0 6px color-mix(in srgb, var(--c) 70%, transparent));
+}
+
+.orb-label {
+    font-size: 11.5px;
+    color: #e6e6e8;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.orb-tip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    white-space: nowrap;
+    background: rgba(15,15,17,0.95);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #eaeaea;
+    font-size: 12px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 20;
+}
+
+.spoke:hover .beam,
+.spoke:focus-within .beam {
+    opacity: 1;
+    filter: drop-shadow(0 0 4px var(--c));
+}
+
+.spoke:hover .orb,
+.spoke:focus-within .orb {
+    transform: scale(1.18);
+    border-color: var(--c);
+    box-shadow: 0 0 22px var(--c), 0 0 46px color-mix(in srgb, var(--c) 35%, transparent);
+}
+
+.spoke:hover .orb-tip,
+.spoke:focus-within .orb-tip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.core-wrap:hover .core-orb {
+    transform: scale(1.08);
+}
+
+/* =========================================
+   💻 Tablets / telas médias — encolhe os raios da órbita
+   pra caber sem sobrepor o título, antes de virar lista no mobile
+========================================= */
+@media (max-width: 1100px) and (min-width: 861px) {
+    .skills-galaxy {
+        height: 74vmin;
+        max-height: 560px;
+        min-height: 440px;
+    }
+    /* !important necessário: --radius é definido inline no HTML de cada
+       .spoke, e um style inline sempre vence regras de folha de estilo,
+       inclusive dentro de media queries */
+    .spoke:not(.outer) {
+        --radius: 19vmin !important;
+    }
+    .spoke.outer {
+        --radius: 31vmin !important;
+    }
+    .orb { width: 72px; height: 72px; font-size: 24px; }
+    .core-orb { width: 108px; height: 108px; font-size: 34px; }
+}
+
+/* =========================================
+   📱 Mobile — a órbita vira uma lista simples
+========================================= */
+@media (max-width: 860px) {
+    .skills-galaxy {
+        height: auto;
+        min-height: 0;
+        max-width: 480px;
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        transform: none !important;
+        perspective: none;
+    }
+    .core-wrap { position: static; transform: none; order: -1; width: 100%; margin-bottom: 10px; }
+    .spoke { position: static; width: auto; height: auto; transform: none; opacity: 1; }
+    .skills-galaxy.in-view .spoke { transition: none; }
+    .beam { display: none; }
+    .orb-anchor { position: static; transform: none; }
+    .orb-float { animation: none; }
+    .orb { width: 74px; height: 74px; }
 }
 
 
@@ -301,14 +593,14 @@ body {
    JORNADA / EXPERIÊNCIA
 ========================================= */
 .experiencia {
-    padding: 120px 10%;
+    /* padding-top aumentado (era 120px) pra combinar com o respiro extra das skills */
+    padding: 180px 10% 120px 10%;
     background: #000;
     color: #fff;
     position: relative;
     overflow: hidden;
 }
 
-/* Fundo da Jornada que você criou */
 .experiencia::before {
     content: "";
     position: absolute;
@@ -319,7 +611,6 @@ body {
     z-index: 0;
 }
 
-/* 🔥 SUA ANIMAÇÃO DE WAVE DA JORNADA DE VOLTA! */
 .experiencia h2 {
     font-family: 'Archivo Black', sans-serif;
     font-size: clamp(40px, 5vw, 80px);
@@ -371,7 +662,6 @@ body {
 .evento.esquerda { left: 0; text-align: right; }
 .evento.direita { left: 50%; text-align: left; }
 
-/* 🔥 SUA ANIMAÇÃO DE PULSO DE VOLTA! */
 .evento::before {
     content: "";
     position: absolute;
@@ -405,7 +695,6 @@ body {
     overflow: hidden;
 }
 
-/* Luz passando no card da jornada */
 .conteudo::after {
     content: "";
     position: absolute;
@@ -423,7 +712,7 @@ body {
     box-shadow: 0 10px 40px rgba(255,255,255,0.15);
 }
 
-.conteudo span { color: #aaa; font-size: 14px; }
+.conteudo span { color: var(--accent); font-size: 14px; font-weight: 700; letter-spacing: 1px; }
 .conteudo h3 { font-size: 20px; margin: 10px 0; }
 .conteudo p { color: #ccc; }
 
@@ -449,7 +738,185 @@ body {
     border-radius: 10px;
 }
 
-.projetos p { color: #aaa; max-width: 600px; margin: 30px auto; font-size: 18px; line-height: 1.6; text-shadow: 0 0 10px rgba(255,255,255,0.05); }
+.projetos p { color: #aaa; max-width: 600px; margin: 20px auto 10px; font-size: 18px; line-height: 1.6; text-shadow: 0 0 10px rgba(255,255,255,0.05); }
+
+/* --- Grid de cards de projetos --- */
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1100px;
+    margin: 50px auto 50px;
+    text-align: left;
+}
+
+.projeto-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.projeto-card::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 55%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.14), transparent);
+    transform: skewX(-20deg);
+    pointer-events: none;
+}
+
+.projeto-card:hover::after { animation: luz 0.9s; }
+
+.projeto-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,0.28);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.5), 0 0 30px rgba(200,200,205,0.16);
+}
+
+/* Miniatura do projeto */
+.projeto-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-dim);
+    font-size: 30px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.projeto-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Corpo do card */
+.projeto-body {
+    padding: 22px 22px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.projeto-tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-size: 10.5px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 4px 11px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.projeto-card h3 {
+    font-size: 19px;
+    margin: 0 0 8px;
+    color: #f2f2f3;
+}
+
+.projeto-card p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: #aaa;
+    margin: 0 0 20px;
+    flex: 1;
+    text-shadow: none;
+    max-width: none;
+}
+
+.projeto-links {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.projeto-links a {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #ddd;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.projeto-links a:hover {
+    background: #fff;
+    color: #000;
+    border-color: #fff;
+}
+
+.projeto-links a.principal {
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-dim));
+    color: #1a1a1a;
+    font-weight: 600;
+    border-color: var(--accent);
+}
+
+.projeto-links a.principal:hover {
+    background: linear-gradient(135deg, #ffffff, var(--accent-light));
+    color: #1a1a1a;
+}
+
+/* --- Estado placeholder: "em breve", pra você preencher depois --- */
+.projeto-card.placeholder {
+    border-style: dashed;
+    border-color: rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.015);
+}
+
+.projeto-card.placeholder .projeto-thumb {
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.045) 10px, rgba(255,255,255,0.045) 20px);
+    color: rgba(255,255,255,0.35);
+}
+
+.projeto-card.placeholder .projeto-body {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.projeto-card.placeholder h3 {
+    color: rgba(255,255,255,0.55);
+    font-weight: 600;
+}
+
+.projeto-card.placeholder p {
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+    .projetos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+    .projetos-grid { grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }
+}
 
 .btn-github {
     display: inline-block;
@@ -477,124 +944,52 @@ body {
 .btn-github:hover { background: white; color: black; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,255,255,0.2);}
 
 
-/* =========================================
-   📱 RESPONSIVIDADE
-========================================= */
-
-@media (max-width: 992px) {
-    #home {
-        flex-direction: column; 
-        text-align: center;
-        padding-top: 150px;
-    }
-    
-    .texto { margin: 0 auto; }
-    .botoes { justify-content: center; }
-
-    .gui {
-        margin-top: 50px; 
-        align-self: center; /* Centraliza a foto no celular */
-        transform: translateY(20px); /* Ajuste pro celular */
-    }
+/* 🖼️ MOLDURA DE PERFIL REDONDA E ELEGANTE */
+@keyframes entradaFoto {
+    from { opacity: 0; transform: translateY(10px) scale(0.9); }
+    to   { opacity: 1; transform: translateY(-70px) scale(1); }
 }
 
-@media (max-width: 768px) {
-    .navbar { padding: 15px 20px; }
-    .menu a { margin-left: 10px; font-size: 12px; }
-
-    .timeline::before { left: 20px; }
-    .evento { width: 100%; padding-left: 60px; padding-right: 0; }
-    .evento.esquerda, .evento.direita { left: 0; text-align: left; }
-    .evento::before, .evento.direita::before { left: 20px; }
-}
-/* 🔥 HABILIDADES CONSERTADO */
-/* 🔥 HABILIDADES - AGORA SEM CORTAR 🔥 */
-.habilidades {
-    font-size: clamp(40px, 5vw, 65px); 
-    font-weight: 900;
-    text-align: center;
-    color: #111;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    text-shadow: 0 2px 0 #fff, 0 10px 30px rgba(0,0,0,0.2);
-    margin-bottom: 50px; /* Espaço entre o título e os cards */
-    transition: 0.3s;
-    display: block;
+@keyframes respirarBrilho {
+    0%, 100% { box-shadow: 0 20px 55px rgba(0,0,0,0.55), 0 0 22px rgba(200,200,205,0.14); }
+    50%      { box-shadow: 0 20px 55px rgba(0,0,0,0.55), 0 0 42px rgba(200,200,205,0.3); }
 }
 
-.habilidades:hover {
-    transform: scale(1.03); 
-}
-
-.habilidades::after {
-    content: "";
-    display: block;
-    width: 120px;
-    height: 5px;
-    margin: 5px auto 0;
-    background: linear-gradient(90deg, #000, #999, #000);
-    border-radius: 10px;
-}
-/* 🔥 LINHA DIVISÓRIA GROSSA E NA DIVISA EXATA */
-.divisor {
-    position: relative;
-    width: 100%;
-    height: 12px; /* 🔥 BEM MAIS GROSSA (se quiser mais grossa, aumente esse número) */
-    margin: 0; /* 🔥 Zera a margem para ela colar na divisa entre o branco e o preto */
-    background: #333; /* Cor da linha */
-    overflow: hidden;
-    z-index: 10;
-}
-
-.divisor::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -20%;
-    width: 20%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, #ffffff, transparent); /* Brilho forte */
-    animation: brilho 3s infinite linear;
-}
-
-@keyframes brilho {
-    0% { left: -20%; }
-    100% { left: 120%; }
-}
-/* 🔥 BLOCO DE TEXTO E BOTÕES PARA CIMA */
-.texto {
-    color: white;
-    max-width: 500px;
-    z-index: 3;
-    margin-top: -100px; /* 🔥 AQUI! Quanto mais negativo, mais o texto sobe */
-}
 .gui {
     width: 100%;
-    max-width: 550px; /* 🔥 AUMENTOU O TAMANHO (antes era 500px) */
-    
-    filter: drop-shadow(0 0 25px rgba(255,  255,255,0.2));
-    transition: 0.3s;
-    z-index: 0;
-    align-self: flex-end; 
-    
-    transform: translateY(-30px); /* 🔥 SUBIU A FOTO (antes era 40px positivo para baixo) */
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top center;
+
+    border-radius: 50%;
+
+    border: 3px solid transparent;
+    background:
+        linear-gradient(#0d0d0d, #0d0d0d) padding-box,
+        linear-gradient(135deg, #e4e4e6, #ffffff 35%, #b8b8b8 65%, #e4e4e6) border-box;
+
+    padding: 6px;
+    box-sizing: border-box;
+
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    position: relative;
+    z-index: 1;
+    align-self: center;
+    transform: translateY(-70px);
+
+    animation:
+        entradaFoto 1.1s cubic-bezier(.16,.84,.44,1) both,
+        respirarBrilho 4.5s ease-in-out infinite 1.1s;
+    animation-delay: 0.3s, 1.4s;
 }
 
-/* Ajusta o hover para acompanhar a nova posição */
 .gui:hover {
-    transform: translateY(-40px); /* Dá aquele pulinho suave pra cima */
-}
-.texto {
-    color: white;
-    max-width: 500px;
-    z-index: 3;
-    
-    /* 🔥 ALTURA DO TEXTO INTEIRO:
-       Quanto MAIS negativo for esse número, MAIS ALTO o texto fica.
-       Tente -40px, -60px ou -80px e veja como fica na tela! */
-    margin-top: -350px; 
-    text-align: left;
-    
+    transform: translateY(-80px) scale(1.03);
+    box-shadow:
+        0 28px 65px rgba(0,0,0,0.6),
+        0 0 45px rgba(200,200,205,0.28);
 }
 
 .footer {
@@ -630,17 +1025,14 @@ body {
     color: #666;
 }
 
-
 .bg-animado {
     position: fixed;
-    inset: 0; /* melhor que width/height */
-    
+    inset: 0;
     background: radial-gradient(circle at center, #111, #000 70%);
-    
     z-index: -10;
     pointer-events: none;
 }
-/* particles fica acima do fundo */
+
 #particles-js {
     position: fixed;
     width: 100%;
@@ -648,16 +1040,58 @@ body {
     z-index: -1;
 }
 
-/* seu conteúdo normal */
-.navbar {
-    position: fixed; /* ou absolute se preferir */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-}
 html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+}
+
+
+/* =========================================
+   📱 RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 992px) {
+    #home {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 150px;
+    }
+
+    .texto { margin: 0 auto; text-align: center; }
+    .botoes { margin: 0 auto; }
+
+    .gui {
+        max-width: 280px;
+        margin-top: 20px;
+        align-self: center;
+        animation: entradaFotoMobile 1.1s cubic-bezier(.16,.84,.44,1) both, respirarBrilho 4.5s ease-in-out infinite 1.1s;
+        animation-delay: 0.3s, 1.4s;
+    }
+
+    @keyframes entradaFotoMobile {
+        from { opacity: 0; transform: translateY(10px) scale(0.9); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .gui:hover {
+        transform: scale(1.03);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar { padding: 15px 20px; flex-wrap: wrap; gap: 10px; }
+    .menu a { margin-left: 10px; font-size: 12px; }
+    .nav-icons { margin-left: 10px; }
+
+    .botoes { grid-template-columns: 1fr; max-width: 260px; margin: 0 auto; }
+
+    .timeline::before { left: 20px; }
+    .evento { width: 100%; padding-left: 60px; padding-right: 0; }
+    .evento.esquerda, .evento.direita { left: 0; text-align: left; }
+    .evento::before, .evento.direita::before { left: 20px; }
+
+    /* Em telas menores, respiro entre skills e jornada um pouco mais compacto */
+    .skills { padding-bottom: 140px; }
+    .experiencia { padding-top: 120px; }
 }
